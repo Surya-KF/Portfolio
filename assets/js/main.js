@@ -1,4 +1,4 @@
-const navMenu = document.getElementById("nav-menu"),
+    const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
   navItem = document.querySelectorAll(".nav__item"),
   header = document.getElementById("header");
