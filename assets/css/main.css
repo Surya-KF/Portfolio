@@ -40,9 +40,107 @@
   /* Transition and box shadow*/
   --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+  /* Light theme colors */
+  --color-bg-primary-light: #ffffff;
+  --color-bg-secondary-light: #f5f5f5;
+  --color-bg-footer-light: #eeeeee;
+  --color-text-light: #333333;
 }
 
-/* CSS Reset
+/* Add theme toggle styles */
+.nav__theme {
+    font-size: var(--fs-xl);
+    color: var(--color-white);
+    cursor: pointer;
+    margin-right: 2rem;
+    transition: var(--transition);
+}
+
+.nav__theme:hover {
+    color: var(--color-primary);
+}
+
+/* Light theme classes */
+body.light-theme {
+    background-color: var(--color-bg-primary-light);
+    color: var(--color-text-light);
+}
+
+.light-theme .header,
+.light-theme .nav__menu {
+    background-color: var(--color-bg-primary-light);
+}
+
+.light-theme .section,
+.light-theme .service__card,
+.light-theme .testimonial__card {
+    background-color: var(--color-bg-secondary-light);
+}
+
+.light-theme .footer {
+    background-color: var(--color-bg-footer-light);
+}
+
+/* Light theme color fixes */
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4,
+.light-theme p,
+.light-theme .nav__brand i{
+    color: var(--color-bg-primary);
+}
+
+.light-theme .nav__link,
+.light-theme .nav__toggle {
+    color: var(--color-bg-primary);
+}
+
+.light-theme .qualification__name,
+.light-theme .testimonial__description {
+    color: var(--color-bg-primary);
+}
+
+.light-theme .service__icon,
+.light-theme .project__title,
+.light-theme .project__link,
+.light-theme .footer__title,
+.light-theme .footer__contact,
+.light-theme .footer__social,
+.light-theme .footer__social-link,
+.light-theme.hero__info-number {
+    color: var(--color-bg-primary);
+}
+
+.light-theme .nav__menu {
+    background-color: var(--color-bg-primary-light);
+}
+
+.light-theme .skills__content,
+.light-theme .service__card,
+.light-theme .testimonial__card {
+    background-color: var(--color-white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme ::-webkit-scrollbar {
+    background-color: var(--color-bg-secondary-light);
+}
+.light-theme .nav__theme {
+  color: var(--color-bg-primary);
+  transition: var(--transition);
+  margin-right: 2rem;
+}
+
+.light-theme .nav__theme:hover {
+  color: var(--color-primary);
+}
+
+
+.light-theme ::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+}/* CSS Reset
 --------------------------------------------------------------*/
 *,
 *::before,

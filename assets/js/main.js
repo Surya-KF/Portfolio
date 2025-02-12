@@ -95,3 +95,29 @@ sr.reveal(".qualification__footer-text, .contact__content", {
 });
 
 sr.reveal(".qualification__footer .btn, .contact__btn", { origin: "right" });
+
+// Theme toggle functionality
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+    body.classList.add(savedTheme);
+    if (savedTheme === "light-theme") {
+        themeToggle.classList.replace("ri-moon-line", "ri-sun-line");
+    }
+}
+
+// Toggle theme function
+themeToggle.addEventListener("click", () => {
+    body.classList.toggle("light-theme");
+    
+    if (body.classList.contains("light-theme")) {
+        themeToggle.classList.replace("ri-moon-line", "ri-sun-line");
+        localStorage.setItem("theme", "light-theme");
+    } else {
+        themeToggle.classList.replace("ri-sun-line", "ri-moon-line");
+        localStorage.removeItem("theme");
+    }
+});
