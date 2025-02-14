@@ -69,8 +69,10 @@ body.light-theme {
 
 .light-theme .header,
 .light-theme .nav__menu {
-    background-color: var(--color-bg-primary-light);
+
+    background-color: var(--color-bg-primary-light); /* Ensure this matches the body background */
 }
+
 
 .light-theme .section,
 .light-theme .service__card,
@@ -275,14 +277,28 @@ body {
 }
 
 .btn--secondary:hover {
-  background-color: var(--color-primary-dark);
-  transform: scale(1.05);
-  box-shadow: 0 0 25px var(--color-primary),
-              0 0 50px var(--color-primary);;
+
+
+
+
+background-color: var(--color-primary-dark);
+transform: scale(1.05);
+box-shadow: 0 0 25px var(--color-primary),
+            0 0 50px var(--color-primary);
 }
 
-/* Header
---------------------------------------------------------------*/
+
+
+body {
+  background-color: var(--color-bg-primary);
+  font-family: var(--ff-body);
+  font-size: var(--fs-md);
+  color: var(--color-text);
+  margin-top: var(--height-header);
+  line-height: 1.2;
+  transition: background-color var(--transition), color var(--transition);
+}
+
 .header {
   background-color: var(--color-bg-primary);
   position: fixed;
@@ -293,7 +309,7 @@ body {
   align-items: center;
   height: var(--height-header);
   z-index: var(--zindex-menu);
-  transition: var(--transition);
+  transition: background-color var(--transition);
 }
 
 .header--scroll {
