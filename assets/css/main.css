@@ -264,6 +264,8 @@ body {
   color: var(--color-white);
   border-radius: 3rem;
   transition: 0.3s ease-in-out;
+  margin-top: 2rem;
+  margin-left: 2rem;
 }
 
 .btn--primary:hover {
@@ -1017,6 +1019,8 @@ body {
   .contact__wrapper {
     text-align: center;
   }
+
+  
 }
 
 /* Medium devices*/
@@ -1048,6 +1052,11 @@ body {
 
   .footer__wrapper {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav__theme {
+    margin-left: auto;
+    margin-right: 1rem;
   }
 }
 
