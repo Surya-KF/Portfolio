@@ -347,6 +347,7 @@ body {
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
+  margin-right: 4rem;
 }
 
 .nav__brand i {
