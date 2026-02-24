@@ -83,7 +83,7 @@ sr.reveal(".hero__content, .about__content");
 sr.reveal(".hero__img", { origin: "top" });
 
 sr.reveal(
-  ".hero__info-wrapper, .skills__title, .skills__content, .qualification__name, .qualification__item, .service__card, .project__content, .testimonial__wrapper, .footer__content",
+  ".hero__info-wrapper, .skills__title, .skills__content, .qualification__name, .qualification__item, .certification__card, .service__card, .project__content, .testimonial__wrapper, .footer__content",
   {
     delay: 500,
     interval: 100,

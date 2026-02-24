@@ -121,7 +121,8 @@ body.light-theme {
 
 .light-theme .skills__content,
 .light-theme .service__card,
-.light-theme .testimonial__card {
+.light-theme .testimonial__card,
+.light-theme .certification__card {
     background-color: var(--color-white);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -640,6 +641,93 @@ body {
   margin-bottom: 2rem;
 }
 
+/* Certifications
+--------------------------------------------------------------*/
+.certification__wrapper {
+  grid-template-columns: 1fr;
+}
+
+.certification__card {
+  background-color: var(--color-bg-secondary);
+  box-shadow: var(--box-shadow);
+  padding: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.8rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.certification__title {
+  font-size: var(--fs-lg);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  min-height: 5.2rem;
+}
+
+.certification__issuer {
+  color: var(--color-white);
+  font-weight: var(--fw-medium);
+}
+
+.certification__issuer-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.certification__issuer-logo {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: var(--color-white);
+  padding: 0.2rem;
+  flex-shrink: 0;
+}
+
+.certification__meta {
+  font-size: var(--fs-sm);
+  margin-bottom: 0.8rem;
+}
+
+.certification__skills {
+  margin-top: 1.2rem;
+  line-height: 1.45;
+}
+
+.certification__link {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.6rem;
+  margin-top: auto;
+  align-self: flex-start;
+  margin-bottom: 0.2rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  text-transform: none;
+  transition: var(--transition);
+}
+
+.certification__link:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-white);
+  column-gap: 1rem;
+}
+
+.certification__link--disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* Services
 --------------------------------------------------------------*/
 .service__card {
@@ -1051,6 +1139,10 @@ body {
     justify-content: center;
   }
 
+  .certification__wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .footer__wrapper {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1104,6 +1196,10 @@ body {
   .qualification__content,
   .service__wrapper,
   .project__wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .certification__wrapper {
     grid-template-columns: repeat(3, 1fr);
   }
 
