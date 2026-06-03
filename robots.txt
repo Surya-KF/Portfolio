@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://surya-kf.github.io/Portfolio/sitemap.xml
