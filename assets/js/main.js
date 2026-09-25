@@ -99,6 +99,34 @@ document.querySelectorAll(".timeline__item").forEach((item, index) => {
   body.appendChild(certificateLink);
 });
 
+const valueHealthItem = document.querySelector(".timeline__item--current");
+const valueHealthDescription = valueHealthItem?.querySelector(".timeline__body > p:nth-of-type(2)");
+
+if (valueHealthDescription) {
+  valueHealthDescription.innerHTML = "Preprocessed insurance benefit PDFs for the Patient Nexus EBV system with a document intelligence workflow using Mistral OCR, structured extraction, validation, and Batch API processing, cutting per-page cost by <strong>25%</strong>. Trained a Gradient Boosting model to predict drug coverage status from insurance benefit documents.";
+}
+
+const valueHealthTags = ["Document Preprocessing", "Mistral OCR", "Data Pipelines"];
+const valueHealthTagList = valueHealthItem?.querySelector(".tag-list");
+
+valueHealthTags.forEach((tag) => {
+  if (!valueHealthTagList || [...valueHealthTagList.children].some((item) => item.textContent === tag)) return;
+  const tagElement = document.createElement("span");
+  tagElement.textContent = tag;
+  valueHealthTagList.appendChild(tagElement);
+});
+
+const toolkitKeywordUpdates = [
+  "RAG · LLM integration · AI agents · Prompt engineering · LLM evaluation · Transformers · Fine-tuning · BERT · BiLSTM · Gradient Boosting · Classification",
+  "Python · FastAPI · FastMCP · Streamlit · Chainlit · React · LangChain · REST APIs · Docker · Model deployment",
+  "Document preprocessing · ETL · Data validation · Embeddings · Semantic search · Milvus · ChromaDB · FAISS · Pinecone · MongoDB Atlas · PostgreSQL · SQLite",
+  "OCR · PDF processing · OpenCV · YOLOv5/v8 · Pandas · NumPy · MLOps · LLMOps · Git · Docker Compose · Bash",
+];
+
+document.querySelectorAll(".toolkit__grid > div > p").forEach((item, index) => {
+  if (toolkitKeywordUpdates[index]) item.textContent = toolkitKeywordUpdates[index];
+});
+
 const toolkitIcons = ["ri-lightbulb-line", "ri-code-s-slash-line", "ri-database-2-line", "ri-eye-line"];
 
 document.querySelectorAll(".toolkit__grid > div").forEach((card, index) => {
