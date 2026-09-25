@@ -1,123 +1,186 @@
-    const navMenu = document.getElementById("nav-menu"),
-  navToggle = document.getElementById("nav-toggle"),
-  navItem = document.querySelectorAll(".nav__item"),
-  header = document.getElementById("header");
+const navMenu = document.getElementById("nav-menu");
+const navToggle = document.getElementById("nav-toggle");
+const header = document.getElementById("header");
 
-// open and close menu
 navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("nav__menu--open");
-  changeIcon();
+  const isOpen = navMenu.classList.toggle("nav__menu--open");
+  navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+  navToggle.querySelector("i").className = isOpen ? "ri-close-line" : "ri-menu-4-line";
 });
 
-// close the menu when the user clicks the nav links
-navItem.forEach((item) => {
-  item.addEventListener("click", () => {
-    if (navMenu.classList.contains("nav__menu--open")) {
-      navMenu.classList.remove("nav__menu--open");
-    }
-    changeIcon();
+document.querySelectorAll(".nav__link").forEach((link) => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("nav__menu--open");
+    navToggle.setAttribute("aria-label", "Open navigation");
+    navToggle.querySelector("i").className = "ri-menu-4-line";
   });
 });
 
-// Change nav toggle icon
-function changeIcon() {
-  if (navMenu.classList.contains("nav__menu--open")) {
-    navToggle.classList.replace("ri-menu-3-line", "ri-close-line");
-  } else {
-    navToggle.classList.replace("ri-close-line", "ri-menu-3-line");
-  }
+window.addEventListener("scroll", () => {
+  header.classList.toggle("header--scroll", window.scrollY > 24);
+});
+
+const truthLensCard = document.querySelector(".project-card--feature .project-card__content");
+const truthLensGithubLink = truthLensCard?.querySelector(".inline-link");
+
+if (truthLensCard && truthLensGithubLink) {
+  const projectLinks = document.createElement("div");
+  projectLinks.className = "project-card__links";
+  truthLensGithubLink.parentNode.insertBefore(projectLinks, truthLensGithubLink);
+  projectLinks.appendChild(truthLensGithubLink);
+
+  const liveLink = document.createElement("a");
+  liveLink.className = "inline-link";
+  liveLink.href = "https://truth-lens-bert-based-fake-news-and.vercel.app/";
+  liveLink.target = "_blank";
+  liveLink.rel = "noopener noreferrer";
+  liveLink.innerHTML = 'Live demo <i class="ri-external-link-line"></i>';
+  projectLinks.appendChild(liveLink);
 }
 
-// Downloading Resume
-// document.getElementsByClassName("btn btn--primary").addEventListener("click", function() {
-//   window.location.href = "../../assets/Calvin Mwangi.pdf"
-// })
+const conversationLink = document.querySelector('.about__copy a[href^="mailto:"]');
 
+if (conversationLink) {
+  conversationLink.href = "https://mail.google.com/mail/?view=cm&fs=1&to=suryakf04@gmail.com&su=Conversation%20with%20KF%20Surya";
+  conversationLink.target = "_blank";
+  conversationLink.rel = "noopener noreferrer";
+}
 
-// Testimonial Slide
+const profileTicker = document.querySelector(".hero__ticker .container");
 
-const testimonialSlide = new Swiper(".testimonial__wrapper", {
-  loop: true,
-  spaceBetween: 30,
-  centeredSlides: true,
-  effect: "coverflow",
-  grabCursor: true,
-  slidesPerView: 1,
-  coverflowEffect: {
-    rotate: 50,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows: true,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
+if (profileTicker) {
+  profileTicker.innerHTML = '<span>Building where AI meets real work</span><strong>Grounded answers</strong><span class="ticker-line"></span><strong>Healthcare intelligence</strong><span class="ticker-line"></span><strong>Production-ready agents</strong>';
+}
 
-  breakpoints: {
-    520: {
-      slidesPerView: "auto",
-    },
-  },
+const profileFrame = document.querySelector(".hero__image-frame");
+const alternateProfile = new Image();
+
+alternateProfile.src = "assets/img/SURYA2.jpeg";
+alternateProfile.alt = "KF Surya profile portrait";
+alternateProfile.className = "hero__alternate-img";
+alternateProfile.loading = "lazy";
+alternateProfile.addEventListener("load", () => {
+  profileFrame?.appendChild(alternateProfile);
+  profileFrame?.classList.add("hero__image-frame--switchable");
 });
 
-// header scroll animation
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 40) {
-    header.classList.add("header--scroll");
-  } else {
-    header.classList.remove("header--scroll");
+document.querySelectorAll('a[href*="KF%20SURYA_RESUME.pdf"]').forEach((resumeLink) => {
+  resumeLink.href = "assets/sept_resume/KF_SURYA_RESUME.pdf";
+});
+
+const footerLinks = document.querySelector(".footer__links");
+
+if (footerLinks && !footerLinks.querySelector('[aria-label="WhatsApp"]')) {
+  const whatsappLink = document.createElement("a");
+  whatsappLink.href = "https://wa.me/918848617208?text=Hello%20KF%20Surya";
+  whatsappLink.target = "_blank";
+  whatsappLink.rel = "noopener noreferrer";
+  whatsappLink.setAttribute("aria-label", "WhatsApp");
+  whatsappLink.innerHTML = '<i class="ri-whatsapp-line"></i>';
+  footerLinks.appendChild(whatsappLink);
+}
+
+const experienceCertificates = [
+  "assets/Internship%20-%20Surya%20KF_%20valueHealth.pdf",
+  "assets/EIsystems_certificate.pdf",
+  "assets/yanne_certificate.pdf",
+];
+
+document.querySelectorAll(".timeline__item").forEach((item, index) => {
+  const body = item.querySelector(".timeline__body");
+  if (!body || !experienceCertificates[index]) return;
+
+  const certificateLink = document.createElement("a");
+  certificateLink.className = "inline-link experience__certificate";
+  certificateLink.href = experienceCertificates[index];
+  certificateLink.target = "_blank";
+  certificateLink.rel = "noopener noreferrer";
+  certificateLink.innerHTML = 'View experience certificate <i class="ri-file-text-line"></i>';
+  body.appendChild(certificateLink);
+});
+
+const toolkitIcons = ["ri-lightbulb-line", "ri-code-s-slash-line", "ri-database-2-line", "ri-eye-line"];
+
+document.querySelectorAll(".toolkit__grid > div").forEach((card, index) => {
+  const icon = document.createElement("span");
+  icon.className = "toolkit__icon";
+  icon.setAttribute("aria-hidden", "true");
+  icon.innerHTML = `<i class="${toolkitIcons[index]}"></i>`;
+  card.prepend(icon);
+});
+
+const certificationLogos = [
+  ["https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg", "Udemy logo"],
+  ["https://huggingface.co/front/assets/huggingface_logo-noborder.svg", "Hugging Face logo"],
+  ["https://www.anthropic.com/images/icons/apple-touch-icon.png", "Anthropic logo"],
+  ["https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", "Google logo"],
+  ["https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", "Google logo"],
+  ["https://www.kpriet.ac.in/asset/frontend/images/logo/logo-full.webp", "KPR Institute logo"],
+  ["https://www.kpriet.ac.in/asset/frontend/images/logo/logo-full.webp", "KPR Institute logo"],
+  ["https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", "Google logo"],
+  ["https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/nxqtqrbyo6lf0ojcmarf", "Nasscom logo"],
+  ["https://upload.wikimedia.org/wikipedia/commons/5/5f/Coursera_logo_%282020%29.svg", "Coursera logo"],
+  ["https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", "Google logo"],
+  ["https://upload.wikimedia.org/wikipedia/commons/5/5f/Coursera_logo_%282020%29.svg", "Coursera logo"],
+  ["https://learn.365datascience.com/favicon.ico", "365 Data Science logo"],
+  ["https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg", "IBM logo"],
+];
+
+document.querySelectorAll(".certification-card").forEach((card, index) => {
+  const logoData = certificationLogos[index];
+  if (!logoData) return;
+
+  const logo = document.createElement("img");
+  logo.className = "certification-card__logo";
+  logo.src = logoData[0];
+  logo.alt = logoData[1];
+  logo.loading = "lazy";
+  logo.addEventListener("error", () => {
+    logo.classList.add("certification-card__logo--fallback");
+    logo.alt = "Issuer logo unavailable";
+  });
+  card.prepend(logo);
+});
+
+document.querySelectorAll(".certification-card p").forEach((meta) => {
+  if (meta.textContent.includes("Credential ID:")) {
+    meta.textContent = meta.textContent.replace(/\s*[·•-]?\s*Credential ID:\s*[^]*$/, "").trim();
+    if (!meta.textContent) meta.remove();
   }
 });
 
-// ScrollReveal animations
-const sr = ScrollReveal({
-  duration: 2000,
-  distance: "100px",
-  delay: 400,
-  reset: false,
-});
+const mlopsCertificateCard = document.querySelector(".certification-card");
 
-sr.reveal(".hero__content, .about__content");
-sr.reveal(".hero__img", { origin: "top" });
+if (mlopsCertificateCard && !mlopsCertificateCard.querySelector("a")) {
+  const udemyLink = document.createElement("a");
+  udemyLink.className = "certification-card__link";
+  udemyLink.href = "https://www.udemy.com/certificate/UC-0ed26070-5805-46a2-8e8c-e44957f8f9da/";
+  udemyLink.target = "_blank";
+  udemyLink.rel = "noopener noreferrer";
+  udemyLink.innerHTML = 'View certificate <i class="ri-arrow-right-up-line"></i>';
+  mlopsCertificateCard.appendChild(udemyLink);
+}
 
-sr.reveal(
-  ".hero__info-wrapper, .skills__title, .skills__content, .qualification__name, .qualification__item, .certification__card, .service__card, .project__content, .testimonial__wrapper, .footer__content",
-  {
-    delay: 500,
-    interval: 100,
-  }
+const revealItems = document.querySelectorAll(
+  ".section-intro, .about__copy, .timeline__item, .education, .project-card, .toolkit__grid > div, .certification-card, .contact__inner"
 );
 
-sr.reveal(".qualification__footer-text, .contact__content", {
-  origin: "left",
+revealItems.forEach((item, index) => {
+  item.classList.add("reveal-item");
+  item.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 90}ms`);
 });
 
-sr.reveal(".qualification__footer .btn, .contact__btn", { origin: "right" });
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
 
-// Theme toggle functionality
-const themeToggle = document.getElementById("theme-toggle");
-const body = document.body;
-
-// Check for saved theme preference
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-    body.classList.add(savedTheme);
-    if (savedTheme === "light-theme") {
-        themeToggle.classList.replace("ri-moon-line", "ri-sun-line");
-    }
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
 }
-
-// Toggle theme function
-themeToggle.addEventListener("click", () => {
-    body.classList.toggle("light-theme");
-    
-    if (body.classList.contains("light-theme")) {
-        themeToggle.classList.replace("ri-moon-line", "ri-sun-line");
-        localStorage.setItem("theme", "light-theme");
-    } else {
-        themeToggle.classList.replace("ri-sun-line", "ri-moon-line");
-        localStorage.removeItem("theme");
-    }
-});
