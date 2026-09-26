@@ -16,6 +16,7 @@
 .certification-more .certification-grid{margin-top:0}
 .hero__image-frame{transition-duration:.3s}.hero__image-frame--switchable>img{transition-duration:.25s}.hero__alternate-img{transition:opacity .25s ease,transform .3s cubic-bezier(.22,1,.36,1)}
 .nav__brand{position:relative;transition:color .25s ease,transform .25s cubic-bezier(.22,1,.36,1)}.nav__brand::after{content:"";position:absolute;right:0;bottom:-.55rem;left:4.6rem;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:right center;transition:transform .3s cubic-bezier(.22,1,.36,1)}.nav__brand:hover{color:var(--orange);transform:translateY(-2px)}.nav__brand:hover::after{transform:scaleX(1);transform-origin:left center}.nav__brand:hover .nav__mark{background:var(--orange);color:var(--ink);transform:rotate(-8deg) scale(1.08)}.nav__mark{transition:background .25s ease,color .25s ease,transform .3s cubic-bezier(.22,1,.36,1)}
+@media(min-width:561px){.hero__visual{position:relative;top:-4rem}}
 .certifications .certification-card,.certification-more .certification-card{background:var(--paper);border-top:3px solid var(--acid);min-height:22rem}
 .certifications{padding-bottom:1.5rem}
 .certification-more{padding-bottom:13rem}
