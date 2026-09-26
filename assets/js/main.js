@@ -58,7 +58,8 @@ const alternateProfile = new Image();
 alternateProfile.src = "assets/img/SURYA2.jpeg";
 alternateProfile.alt = "KF Surya profile portrait";
 alternateProfile.className = "hero__alternate-img";
-alternateProfile.loading = "lazy";
+alternateProfile.loading = "eager";
+alternateProfile.fetchPriority = "high";
 alternateProfile.addEventListener("load", () => {
   profileFrame?.appendChild(alternateProfile);
   profileFrame?.classList.add("hero__image-frame--switchable");
