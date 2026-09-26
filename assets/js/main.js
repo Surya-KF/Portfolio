@@ -151,7 +151,7 @@ const certificationLogos = [
   ["https://upload.wikimedia.org/wikipedia/commons/5/5f/Coursera_logo_%282020%29.svg", "Coursera logo"],
   ["https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", "Google logo"],
   ["https://upload.wikimedia.org/wikipedia/commons/5/5f/Coursera_logo_%282020%29.svg", "Coursera logo"],
-  ["https://learn.365datascience.com/favicon.ico", "365 Data Science logo"],
+  ["assets/img/365DataScience.jpg", "365 Data Science logo"],
   ["https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg", "IBM logo"],
 ];
 
