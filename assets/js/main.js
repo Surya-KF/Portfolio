@@ -52,6 +52,18 @@ if (profileTicker) {
   profileTicker.innerHTML = '<span>Building where AI meets real work</span><strong>Grounded answers</strong><span class="ticker-line"></span><strong>Healthcare intelligence</strong><span class="ticker-line"></span><strong>Production-ready agents</strong>';
 }
 
+const profileNote = document.querySelector(".hero__note--top");
+
+if (profileNote) {
+  profileNote.innerHTML = "<span>MESSY EVIDENCE</span><br>into useful<br>decisions.";
+}
+
+const profileTechNote = document.querySelector(".hero__note--bottom");
+
+if (profileTechNote) {
+  profileTechNote.innerHTML = '<i class="ri-sparkling-2-line"></i> Ground the answer.<br>Respect the context.<br>Ship the tool.';
+}
+
 const profileFrame = document.querySelector(".hero__image-frame");
 const alternateProfile = new Image();
 
