@@ -193,6 +193,26 @@ const revealItems = document.querySelectorAll(
   ".section-intro, .about__copy, .timeline__item, .education, .project-card, .toolkit__grid > div, .certification-card, .contact__inner"
 );
 
+
+const awardCard = document.querySelector(".certification-card--award");
+
+if (awardCard && !awardCard.querySelector("a")) {
+  const certificateLink = document.createElement("a");
+  certificateLink.className = "certification-card__link";
+  certificateLink.href = "assets/img/Best%20paper%20Award.png";
+  certificateLink.target = "_blank";
+  certificateLink.rel = "noopener noreferrer";
+  certificateLink.innerHTML = 'View certificate <i class="ri-file-text-line"></i>';
+  awardCard.appendChild(certificateLink);
+
+  const issuerLink = document.createElement("a");
+  issuerLink.className = "certification-card__link";
+  issuerLink.href = "https://www.kpriet.ac.in/";
+  issuerLink.target = "_blank";
+  issuerLink.rel = "noopener noreferrer";
+  issuerLink.innerHTML = 'Verify award issuer <i class="ri-arrow-right-up-line"></i>';
+  awardCard.appendChild(issuerLink);
+}
 revealItems.forEach((item, index) => {
   item.classList.add("reveal-item");
   item.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 90}ms`);
